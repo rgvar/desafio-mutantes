@@ -1,5 +1,6 @@
 package com.desarrollosoftware.mutantes.controllers;
 
+import com.desarrollosoftware.mutantes.dto.ErrorDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -7,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 
 import java.time.LocalDateTime;
@@ -15,17 +17,23 @@ import java.util.Map;
 
 @ControllerAdvice
 public class AdviceController {
+
     private static final Logger logger = LoggerFactory.getLogger(AdviceController.class);
+
     @ExceptionHandler(value = Exception.class)
-    public ResponseEntity<Map<String, Object>> handleGlobalException(Exception ex, WebRequest request) {
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    public ResponseEntity<ErrorDto> handleGlobalException(Exception e) {
+        String errorDate = LocalDateTime.now().toString();
+        String errorMsg = e.getClass() + " : " + e.getMessage() + " : " + errorDate;
+        logger.error(errorMsg);
 
-        Map<String, Object> body = new HashMap<>();
-        body.put("timestamp", LocalDateTime.now());
-        body.put("message", "Ha ocurrido un error inesperado.");
-        body.put("error", ex.getMessage());
-        body.put("path", request.getDescription(false));
+        ErrorDto error = ErrorDto.builder()
+                .errorClass(e.getClass().getSimpleName())
+                .errorMsg(e.getMessage())
+                .errorDate(errorDate)
+                .build();
 
-        return new ResponseEntity<>(body, HttpStatus.INTERNAL_SERVER_ERROR);
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(error);
     }
 
 
