@@ -20,13 +20,19 @@ public class StatsService {
         Long humanCount;
         if ((Boolean) count.get(0)[0]) {
             mutantCount = (Long) count.get(0)[1];
-            humanCount = (Long) count.get(1)[1];
+            humanCount = (count.size() > 1) ? (Long) count.get(1)[1] : 0L;
         } else {
-            mutantCount = (Long) count.get(1)[1];
+            mutantCount = (count.size() > 1) ? (Long) count.get(1)[1] : 0L;
             humanCount = (Long) count.get(0)[1];
         }
 
-        double ratio = Math.round((mutantCount / (double) humanCount) * 100) / 100.0;
+        double ratio = 0.0;
+        if (humanCount != 0) {
+            ratio = Math.round((mutantCount / (double) humanCount) * 100) / 100.0;
+        } else {
+            ratio = 1;
+        }
+
         return new StatsResponse(mutantCount, humanCount, ratio);
     }
 

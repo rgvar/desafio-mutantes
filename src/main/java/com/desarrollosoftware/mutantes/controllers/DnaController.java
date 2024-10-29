@@ -2,6 +2,7 @@ package com.desarrollosoftware.mutantes.controllers;
 
 import com.desarrollosoftware.mutantes.dto.DnaRequest;
 import com.desarrollosoftware.mutantes.dto.DnaResponse;
+import com.desarrollosoftware.mutantes.dto.DnaShortResponse;
 import com.desarrollosoftware.mutantes.services.DnaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,21 +22,18 @@ public class DnaController {
     public ResponseEntity<DnaResponse> isMutant(@RequestBody DnaRequest dnaRequest) {
 
         return ResponseEntity.status(HttpStatus.OK).body(dnaService.analyzeDna(dnaRequest));
-
     }
 
     @PostMapping("/multiple")
-    public ResponseEntity<List<DnaResponse>> isMutantMultiple(@RequestBody List<DnaRequest> dnaList) {
+    public ResponseEntity<List<DnaShortResponse>> isMutantMultiple(@RequestBody List<DnaRequest> dnaList) {
 
         return ResponseEntity.status(HttpStatus.OK).body(dnaService.analyzeDna(dnaList));
-
     }
 
     @GetMapping("")
     public ResponseEntity<?> getAllDna() {
 
         return ResponseEntity.status(HttpStatus.OK).body(dnaService.getAll());
-
     }
 
 }

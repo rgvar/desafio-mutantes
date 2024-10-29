@@ -1,6 +1,7 @@
 package com.desarrollosoftware.mutantes.controllers;
 
 
+import com.desarrollosoftware.mutantes.dto.StatsResponse;
 import com.desarrollosoftware.mutantes.services.StatsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ public class StatsController {
     public StatsService statsService;
 
     @GetMapping
-    public ResponseEntity<?> getStats() {
+    public ResponseEntity<StatsResponse> getStats() {
 
         return ResponseEntity.ok(statsService.getStats());
     }
