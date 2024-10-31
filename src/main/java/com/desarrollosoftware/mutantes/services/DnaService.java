@@ -25,22 +25,18 @@ public class DnaService {
     @Autowired
     public DnaMapper dnaMapper;
 
-    public List<Dna> getAll() {
-
-        return dnaRepository.findAll();
-    }
-
     public DnaResponse analyzeDna(DnaRequest dnaRequest) {
 
         Dna dna = dnaMapper.dnaRequestToDna(dnaRequest);
 
         dna.setMutant(analysisService.isMutant(dna.getDna()));
 
-        if (!dna.getMutant()) {
-            throw new NotMutantException("The DNA is clean. ");
-        }
+        DnaResponse dnaResponse = dnaMapper.dnaToDnaResponse(dnaRepository.save(dna));
 
-        return dnaMapper.dnaToDnaResponse(dnaRepository.save(dna));
+        if (!dna.getMutant()) {
+            throw new NotMutantException("The DNA entered does not correspond to a mutant");
+        } else
+            return dnaResponse;
     }
 
     public List<DnaShortResponse> analyzeDna(List<DnaRequest> dnaList) {
