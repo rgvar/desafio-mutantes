@@ -31,7 +31,7 @@ public class StatsService {
         }
 
         double ratio = 0.0;
-        ratio = Math.round((mutantCount) / (double)(mutantCount+humanCount));
+        ratio = Math.round(((mutantCount) / (double)(mutantCount+humanCount))*100.0)/100.0;
 
         return new StatsResponse(mutantCount, humanCount, ratio);
     }
