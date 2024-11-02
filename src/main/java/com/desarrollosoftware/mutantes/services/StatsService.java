@@ -16,6 +16,10 @@ public class StatsService {
 
     public StatsResponse getStats() {
         List<Object[]> count = dnaRepository.countMutantCondition();
+
+        if (count.isEmpty())
+            return new StatsResponse(0L, 0L,0);
+
         Long mutantCount;
         Long humanCount;
         if ((Boolean) count.get(0)[0]) {
@@ -27,11 +31,7 @@ public class StatsService {
         }
 
         double ratio = 0.0;
-        if (humanCount != 0) {
-            ratio = Math.round((mutantCount / (double) humanCount) * 100) / 100.0;
-        } else {
-            ratio = 1;
-        }
+        ratio = Math.round((mutantCount) / (double)(mutantCount+humanCount));
 
         return new StatsResponse(mutantCount, humanCount, ratio);
     }

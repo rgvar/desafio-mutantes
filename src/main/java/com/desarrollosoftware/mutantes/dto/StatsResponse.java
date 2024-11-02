@@ -13,5 +13,5 @@ public class StatsResponse {
 
     private Long countHumanDna;
 
-    double ratio;
+    private double ratio;
 }
