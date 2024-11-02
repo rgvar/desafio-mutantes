@@ -1,0 +1,167 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > DnaMapperImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.desarrollosoftware.mutantes.mapper</a>
+</div>
+
+<h1>Coverage Summary for Class: DnaMapperImpl (com.desarrollosoftware.mutantes.mapper)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DnaMapperImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (4/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    88.2%
+  </span>
+  <span class="absValue">
+    (15/17)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.desarrollosoftware.mutantes.mapper;
+&nbsp;
+&nbsp;import com.desarrollosoftware.mutantes.dto.DnaRequest;
+&nbsp;import com.desarrollosoftware.mutantes.dto.DnaResponse;
+&nbsp;import com.desarrollosoftware.mutantes.models.Dna;
+&nbsp;import java.util.Arrays;
+&nbsp;import javax.annotation.processing.Generated;
+&nbsp;import org.springframework.stereotype.Component;
+&nbsp;
+&nbsp;@Generated(
+&nbsp;    value = &quot;org.mapstruct.ap.MappingProcessor&quot;,
+&nbsp;    date = &quot;2024-11-01T11:46:23-0300&quot;,
+&nbsp;    comments = &quot;version: 1.5.5.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-8.10.2.jar, environment: Java 17.0.12 (Oracle Corporation)&quot;
+&nbsp;)
+&nbsp;@Component
+<b class="fc">&nbsp;public class DnaMapperImpl implements DnaMapper {</b>
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public DnaResponse dnaToDnaResponse(Dna dna) {
+<b class="pc">&nbsp;        if ( dna == null ) {</b>
+<b class="nc">&nbsp;            return null;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        DnaResponse dnaResponse = new DnaResponse();</b>
+&nbsp;
+<b class="fc">&nbsp;        dnaResponse.setId( dna.getId() );</b>
+<b class="fc">&nbsp;        String[] dna1 = dna.getDna();</b>
+<b class="pc">&nbsp;        if ( dna1 != null ) {</b>
+<b class="fc">&nbsp;            dnaResponse.setDna( Arrays.copyOf( dna1, dna1.length ) );</b>
+&nbsp;        }
+<b class="fc">&nbsp;        dnaResponse.setMutant( dna.getMutant() );</b>
+&nbsp;
+<b class="fc">&nbsp;        return dnaResponse;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Dna dnaRequestToDna(DnaRequest dnaRequest) {
+<b class="pc">&nbsp;        if ( dnaRequest == null ) {</b>
+<b class="nc">&nbsp;            return null;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        Dna.DnaBuilder dna1 = Dna.builder();</b>
+&nbsp;
+<b class="fc">&nbsp;        String[] dna = dnaRequest.getDna();</b>
+<b class="pc">&nbsp;        if ( dna != null ) {</b>
+<b class="fc">&nbsp;            dna1.dna( Arrays.copyOf( dna, dna.length ) );</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        return dna1.build();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-11-02 17:49</div>
+</div>
+</body>
+</html>
