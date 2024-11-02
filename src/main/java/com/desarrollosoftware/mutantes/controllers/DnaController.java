@@ -2,7 +2,6 @@ package com.desarrollosoftware.mutantes.controllers;
 
 import com.desarrollosoftware.mutantes.dto.DnaRequest;
 import com.desarrollosoftware.mutantes.dto.DnaResponse;
-import com.desarrollosoftware.mutantes.dto.DnaShortResponse;
 import com.desarrollosoftware.mutantes.services.DnaService;
 
 import jakarta.validation.Valid;
@@ -28,9 +27,4 @@ public class DnaController {
         return ResponseEntity.status(HttpStatus.OK).body(dnaService.analyzeDna(dnaRequest));
     }
 
-    @PostMapping("/mutant/multiple")
-    public ResponseEntity<List<DnaShortResponse>> isMutantMultiple(@RequestBody List<DnaRequest> dnaList) {
-
-        return ResponseEntity.status(HttpStatus.OK).body(dnaService.analyzeDna(dnaList));
-    }
 }

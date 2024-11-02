@@ -1,10 +1,11 @@
 package com.desarrollosoftware.mutantes.dto;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
-@Data
-@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class ErrorDto {
     private String errorClass;
     private String errorMsg;

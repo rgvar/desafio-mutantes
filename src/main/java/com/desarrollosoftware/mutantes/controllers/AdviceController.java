@@ -22,11 +22,11 @@ public class AdviceController {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<ErrorDto> handleValidationExceptions(MethodArgumentNotValidException e) {
-        ErrorDto error = ErrorDto.builder()
-                .errorClass(e.getClass().getSimpleName())
-                .errorMsg(e.getMessage())
-                .errorDate(LocalDateTime.now().toString())
-                .build();
+
+        ErrorDto error = new ErrorDto(e.getClass().getSimpleName(),
+                e.getMessage(),
+                LocalDateTime.now().toString());
+
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
@@ -35,11 +35,9 @@ public class AdviceController {
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public ResponseEntity<ErrorDto> handleNotMutantException(NotMutantException e) {
 
-        ErrorDto error = ErrorDto.builder()
-                .errorClass(e.getClass().getSimpleName())
-                .errorMsg(e.getMessage())
-                .errorDate(LocalDateTime.now().toString())
-                .build();
+        ErrorDto error = new ErrorDto(e.getClass().getSimpleName(),
+                e.getMessage(),
+                LocalDateTime.now().toString());
 
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body(error);
     }
@@ -48,11 +46,9 @@ public class AdviceController {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<ErrorDto> handleGlobalException(Exception e) {
 
-        ErrorDto error = ErrorDto.builder()
-                .errorClass(e.getClass().getSimpleName())
-                .errorMsg(e.getMessage())
-                .errorDate(LocalDateTime.now().toString())
-                .build();
+        ErrorDto error = new ErrorDto(e.getClass().getSimpleName(),
+                e.getMessage(),
+                LocalDateTime.now().toString());
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
