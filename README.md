@@ -97,7 +97,3 @@ Todas estas pruebas dan el siguiente Test coverage
 ---
 
 ![diagrama.png](images%2Fdiagrama.png)
-
-## Arquitectura del Sistema
-
----
