@@ -55,7 +55,7 @@ Obtendremos las siguientes respuestas dependiendo del caso:
 
 El otro tipo de request que podemos ejecutar es:
 - **GET /stats** en donde obtendremos un response 200-OK con las estadísticas acerca de 
-cuantos ADN corresponden a mutantes y cuantos a no mutantes, y un ratio entre estos dos.
+cuántos ADN corresponden a mutantes y cuántos a no mutantes, y un ratio entre estos dos.
 
 ##  Pruebas con JMeter
 
@@ -74,16 +74,16 @@ Para ejecutar las pruebas
 
 Pruebas unitarias realizadas:
 
-- Envíar un ADN vacío esperando un BadRequest
-- Envíar un ADN nxm esperando un BadRequest
-- Envíar un ADN con números esperando un BadRequest
-- Envíar un ADN nulo esperando un BadRequest
-- Envíar un ADN con elementos nulos esperando un BadRequest
-- Envíar un ADN con una letra inválida esperando un BadRequest
+- Enviar un ADN vacío esperando un BadRequest
+- Enviar un ADN nxm esperando un BadRequest
+- Enviar un ADN con números esperando un BadRequest
+- Enviar un ADN nulo esperando un BadRequest
+- Enviar un ADN con elementos nulos esperando un BadRequest
+- Enviar un ADN con una letra inválida esperando un BadRequest
 - Solicitar los datos de /stats sin ingresar ningún ADN esperando todos los campos en 0
-- Envíar un ADN mutante esperando 200-OK
-- Envíar un ADN no mutante esperando 403-FORBIDDEN
-- Envíar un ADN mutante de mayor tamaño esperando 200-OK
+- Enviar un ADN mutante esperando 200-OK
+- Enviar un ADN no mutante esperando 403-FORBIDDEN
+- Enviar un ADN mutante de mayor tamaño esperando 200-OK
 
 ![tests.jpg](images/tests.jpg)
 
