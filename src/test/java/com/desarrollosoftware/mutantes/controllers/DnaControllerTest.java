@@ -1,6 +1,9 @@
 package com.desarrollosoftware.mutantes.controllers;
 
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,13 +15,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class DnaControllerTest {
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+    class DnaControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
 
     @Test
+    @Order(2)
     public void emptyArrayRequest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/mutant")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -27,6 +32,7 @@ class DnaControllerTest {
     }
 
     @Test
+    @Order(3)
     public void nxmArrayRequest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/mutant")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -43,6 +49,7 @@ class DnaControllerTest {
     }
 
     @Test
+    @Order(4)
     public void numberArrayRequest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/mutant")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -58,6 +65,7 @@ class DnaControllerTest {
     }
 
     @Test
+    @Order(5)
     public void nullRequest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/mutant")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -66,6 +74,7 @@ class DnaControllerTest {
     }
 
     @Test
+    @Order(6)
     public void nullArrayRequest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/mutant")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -81,6 +90,7 @@ class DnaControllerTest {
     }
 
     @Test
+    @Order(7)
     public void otherLettersArrayRequest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/mutant")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -96,6 +106,7 @@ class DnaControllerTest {
     }
 
     @Test
+    @Order(8)
     public void mutantDnaRequest() throws Exception {
 
         mockMvc.perform(MockMvcRequestBuilders.post("/mutant")
@@ -113,6 +124,7 @@ class DnaControllerTest {
     }
 
     @Test
+    @Order(9)
     public void notMutantDnaRequest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/mutant")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -130,6 +142,7 @@ class DnaControllerTest {
 
 
     @Test
+    @Order(10)
     public void mutantDnaRequestBig() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/mutant")
                         .contentType(MediaType.APPLICATION_JSON)
