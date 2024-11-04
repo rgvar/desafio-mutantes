@@ -57,6 +57,8 @@ El otro tipo de request que podemos ejecutar es:
 - **GET /stats** en donde obtendremos un response 200-OK con las estadísticas acerca de 
 cuántos ADN corresponden a mutantes y cuántos a no mutantes, y un ratio entre estos dos.
 
+---
+
 ##  Pruebas con JMeter
 
 ---
@@ -66,11 +68,11 @@ Render (https://parcial-mutantes-zxfw.onrender.com/) estos son los resultados ob
 
 ![img.png](images/img.png)
 
+---
+
 ## Pruebas unitarias y Test coverage
 
 ---
-
-Para ejecutar las pruebas 
 
 Pruebas unitarias realizadas:
 
@@ -87,13 +89,25 @@ Pruebas unitarias realizadas:
 
 ![tests.jpg](images/tests.jpg)
 
-Todas estas pruebas dan el siguiente Test coverage
+Estas pruebas dan el siguiente Test coverage
 
 ![coverage.png](images%2Fcoverage.png)
 
+---
 
 ## Diagrama de Secuencia
 
 ---
 
 ![diagrama.png](images%2Fdiagrama.png)
+
+---
+
+## Arquitectura del Sistema
+
+---
+
+La Arquitectura del Sistema es una arquitectura en capas que se presenta de la siguiente manera.
+
+![diagrama-api.png](images%2Fdiagrama-api.png)
+
