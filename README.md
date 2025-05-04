@@ -1,13 +1,5 @@
-# Parcial Desarrollo de Software
+# Desafío Mutantes Rest API
 
----
-
-### Desafío Mutantes Rest API
-
-
-
-Rodrigo Vargas 47805 \
-3k10
 
 ---
 
